@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "biblioteca-lanzar",
+            "type": "shell",
+            "command": "mvn clean spring-boot:run",
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        }
+    ]
+}

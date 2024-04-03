@@ -1,0 +1,40 @@
+{
+    "editor.formatOnSave": false,
+    "files.autoSave": "onFocusChange",
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    "VsCodeTaskButtons.showCounter": true,
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "$(notebook-move-down) Build",
+            "task": "build",
+            "tooltip": "🛠️ Start the \"build\" task"
+        },
+        {
+            "label": "$(search-refresh) Re-Build",
+            "task": "re-build",
+            "tooltip": "🧹🛠️ Start the \"re-build\" task"
+        },
+        {
+            "label": "$(notebook-delete-cell) Clean build",
+            "task": "clean",
+            "tooltip": "🧹 Start a \"clean\" task"
+        },
+        {
+            "label": "$(server-process) Server",
+            "tasks": [
+                {
+                    "label": "😀 Start Dev Server",
+                    "task": "start-dev",
+                    "description": "$(debug-start) Boots up the development server"
+                },
+                {
+                    "label": "🛑 Stop Dev Server",
+                    "task": "stop-dev",
+                    "description": "$(debug-pause) Shuts down the development server"
+                }
+            ]
+        }
+    ]
+}
