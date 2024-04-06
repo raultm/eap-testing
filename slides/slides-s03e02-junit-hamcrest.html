@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.portada.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# JUnit
+</div>
+
+<aside class="notes"><ul>
+<li>JUnit es un popular framework de pruebas unitarias para Java, que facilita la creación y ejecución de pruebas automatizadas en el desarrollo de software.</li>
+<li>Fue creado por Erich Gamma y Kent Beck en 1997, y desde entonces se ha convertido en el estándar de facto para las pruebas unitarias en Java.</li>
+<li>JUnit se basa en el principio de desarrollo dirigido por pruebas (TDD), donde las pruebas se escriben antes del código de producción para garantizar su corrección y calidad.</li>
+</ul>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Adjuntos/beck.gamma.webp" alt="" style="object-fit: scale-down">
+</div>
+
+<aside class="notes"><p><a href="https://www.zdnet.com/article/kent-beck-we-thought-we-were-just-programming-on-an-airplane/">https://www.zdnet.com/article/kent-beck-we-thought-we-were-just-programming-on-an-airplane/</a></p>
+<p><a href="https://medium.com/@stefan.paladuta17/theory-my-2-cent-about-software-testing-part-1-basic-intro-d765f5767a9f">https://medium.com/@stefan.paladuta17/theory-my-2-cent-about-software-testing-part-1-basic-intro-d765f5767a9f</a></p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# 1997
+
+## Erich Gamma y Kent Beck
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Ventajas
+
+## Estructura: clara y coherente
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Ventajas
+
+## Asserts y Anotaciones
+</div>
+
+<aside class="notes"><p>Proporciona un conjunto de anotaciones y métodos de aserción que simplifican la creación y validación de pruebas.</p>
+<p>Asserts, no tienes tu que hacer if para comprobar, hay metodos que luego documentan.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Ventajas
+
+## Automatización y Regresión
+</div>
+
+<aside class="notes"><p>Facilita la automatización de pruebas, lo que permite realizar pruebas de regresión de manera eficiente a lo largo del ciclo de desarrollo.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Ventajas
+
+## Fácil Integración
+</div>
+
+<aside class="notes"><p>facilmente integrable en proyetos java. Mven gradle...</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Ventajas
+
+## Open Source
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Desventajas
+
+## Depedencia del framework
+</div>
+
+<aside class="notes"><p>aunque con el paso de los años muchas de las características han evolucionado a parecerse. </p>
+<p>En este caso suelo usar hamcrest.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Desventajas
+
+## Pruebas complejas
+</div>
+
+<aside class="notes"><p>como su propio nombre indica JUnit está diseñado para realizar prubas unitarias, a medida que las necesidades de las pruebas empiezan a ser mas complejas la complejidad de los tests tambien se incrementa, es tambien parte de la propia casuistica de la prueba.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Organización
+
+## Anotaciones
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# @Test
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+public class MiClaseTest {
+
+    @Test
+    public void testSuma() {
+        // Arrange
+        MiClase miClase = new MiClase();
+
+        // Act
+        int resultado = miClase.suma(2, 3);
+
+        // Assert
+        assertEquals(5, resultado);
+    }
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# @BeforeEach
+</div>
+
+<aside class="notes"><p>preparación de un entorno común a todos los tests, resetear objetos, estados, etc.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java [5-9]
+public class MiClaseTest {
+
+	MiClase miClase;
+
+	@BeforeEach
+    public void setUp() {
+        miClase = new MiClase();
+        System.out.println("Configuración inicial antes de cada prueba");
+    }
+
+    @Test
+    public void testSuma() {
+        int resultado = miClase.suma(2, 3);
+		assertEquals(5, resultado);
+    }
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# @AfterEach
+</div>
+
+<aside class="notes"><p>cerrar conexiones a base de datos, terminar ciertos procesos que pueden quedar abiertos</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java [11-15]
+public class MiClaseTest {
+
+	MiClase miClase;
+
+	@BeforeEach
+    public void setUp() {
+        miClase = new MiClase();
+        System.out.println("Configuración inicial antes de cada prueba");
+    }
+
+	@AfterEach
+    public void tearDown() {
+        miClase = new MiClase();
+        System.out.println("Limpieza después de cada prueba");
+    }
+
+    @Test
+    public void testSuma() {
+        int resultado = miClase.suma(2, 3);
+		assertEquals(5, resultado);
+    }
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# @BeforeAll
+</div>
+
+<aside class="notes"><p>para la preparación de la clase, la verdad es que por su naturaleza estática, no pudiendo instanciar objetos del estado de la clase, no suelo usarlos, normalmente suele interesar @BeforeEach, pero como hay muchas situaciones que lo conozcais</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java [5-8]
+public class MiClaseTest {
+
+	MiClase miClase;
+
+	@BeforeAll
+	public static void setUpAll(){
+		System.out.println("Configuración inicial de la clase");
+	}
+
+	@BeforeEach
+    public void setUp() {
+        miClase = new MiClase();
+        System.out.println("Configuración inicial antes de cada prueba");
+    }
+
+	@Test
+    public void testSuma() {
+        int resultado = miClase.suma(2, 3);
+		assertEquals(5, resultado);
+    }
+
+	// Aquí irían mas tests
+
+	@AfterEach
+    public void tearDown() {
+        miClase = new MiClase();
+        System.out.println("Limpieza después de cada prueba");
+    }
+
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# @AfterAll
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java [30-33]
+public class MiClaseTest {
+
+	MiClase miClase;
+
+	@BeforeAll
+	public static void setUpAll(){
+		System.out.println("Configuración inicial de la clase");
+	}
+
+	@BeforeEach
+    public void setUp() {
+        miClase = new MiClase();
+        System.out.println("Configuración inicial antes de cada prueba");
+    }
+
+	@Test
+    public void testSuma() {
+        int resultado = miClase.suma(2, 3);
+		assertEquals(5, resultado);
+    }
+
+	// Aquí irían mas tests
+
+	@AfterEach
+    public void tearDown() {
+        miClase = new MiClase();
+        System.out.println("Limpieza después de cada prueba");
+    }
+
+	@AfterAll
+	public static void tearDownAll(){
+		System.out.println("Limpieza después de todas las pruebas");
+	}
+
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Asserts
+</div>
+
+<aside class="notes"><p><a href="https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html">https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html</a></p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# assertEquals
+
+### `assertEquals(expected, result)`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# assertNotEquals
+
+### `assertNotEquals(expected, result)`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# assertTrue
+
+### `assertTrue(condition)`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# assertFalse
+
+### `assertFalse(condition)`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# assertNull
+
+### `assertNull(object)`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# assertNotNull
+
+### `assertNotNull(object)`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# assertThrows
+
+### `assertThrows(exceptionType, executable)`
+</div>
+
+<aside class="notes"><p>Comprueba que se lance una excepción durante la ejecución de una prueba.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# assertDoesNotThrows
+
+### `assertDoesNotThrows(executable)`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# assertArrayEquals
+
+### `assertArrayEquals(expectedArray, actualArray)`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+public class CalculadoraTest {
+
+    @Test
+    public void testSuma() {
+        Calculadora calc = new Calculadora();
+        int resultado = calc.suma(2, 3);
+        assertEquals(5, resultado, "La suma de 2 y 3 debe ser 5");
+    }
+
+    @Test
+    public void testDivision() {
+        Calculadora calc = new Calculadora();
+        assertThrows(ArithmeticException.class, () -> {
+            calc.division(5, 0);
+        });
+    }
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+| Listado Básico                                  |
+| ----------------------------------------------- |
+| `assertEquals(expected, result)`                |
+| `assertNotEquals(expected, result)`             |
+| `assertTrue(condition)`                         |
+| `assertFalse(condition)`                        |
+| `assertNull(object)`                            |
+| `assertThrows(exceptionType, executable)`       |
+| `assertDoesNotThrows(executable)`               |
+| `assertArrayEquals(expectedArray, actualArray)` |
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Organización
+
+## Suites
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# @Tag
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+@DisplayName("Suite de Pruebas de Integración")
+@Tag("integracion")
+public class SuitePruebasIntegracion {
+
+    @Test
+    @DisplayName("Prueba de Integración 1")
+    void pruebaIntegracion1() {
+        // Implementación de la prueba de integración 1
+    }
+
+    @Test
+    @DisplayName("Prueba de Integración 2")
+    void pruebaIntegracion2() {
+        // Implementación de la prueba de integración 2
+    }
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```bash
+mvn test -Dgroups=integracion
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# @SelectClasses
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+@DisplayName("Suite de Pruebas")
+@SelectClasses({Prueba1Test.class, Prueba2Test.class}) // Selecciona clases específicas
+//@SelectPackages("com.ejemplo.pruebas") // Opcional: selecciona todas las clases en un paquete
+public class SuitePruebas {
+    // No es necesario definir métodos de prueba aquí
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```bash
+mvn test -Dtest=SuitePruebas
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Parametrización
+
+### `@ParameterizedTest`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `@ValueSource`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+public class ComprabadorDeNumerosPrimosTest {
+
+    @ParameterizedTest  
+	@ValueSource(ints = { 2, 7, 29, 67, 89 })  
+	void isPrime(int number) {  
+	  Assertions.assertTrue(MathUtils.isPrime(number));  
+	}
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `@MethodSource`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+public class CalculadoraTest {
+
+    @ParameterizedTest
+    @MethodSource("sumarDataProvider")
+    void testSuma(int num1, int num2, int resultadoEsperado) {
+        Calculadora calc = new Calculadora();
+        int resultado = calc.suma(num1, num2);
+        assertEquals(resultadoEsperado, resultado);
+    }
+
+    static Stream<Arguments> sumarDataProvider() {
+        return Stream.of(
+            Arguments.of(2, 3, 5),
+            Arguments.of(5, 7, 12),
+            Arguments.of(-3, 8, 5)
+        );
+    }
+}
+```
+</div>
+
+<aside class="notes"><p>puede estar bien ocasionalmente, pero la experiencia me dice que es mejor ir a casos concretos y describirlo, de esta manera se pierde el contexto de la prueba ¿que se está probando?</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `@CsvFileSource`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+Si imaginamos un archivo `datos-descuento.csv` con el siguiente contenido
+
+```txt
+PrecioOriginal,PorcentajeDescuento,PrecioEsperado
+100,10,90
+200,20,160
+300,30,210
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+public class CalculadoraDescuentoTest {
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/datos-descuento.csv", numLinesToSkip = 1)
+    void testCalcularDescuento(double precioOriginal, int porcentajeDescuento, double precioEsperado) {
+        CalculadoraDescuento calculadora = new CalculadoraDescuento();
+        double precioCalculado = calculadora.calcularDescuento(precioOriginal, porcentajeDescuento);
+        assertEquals(precioEsperado, precioCalculado, 0.001); // Se usa un margen de error de 0.001
+    }
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Test Doubles
+</div>
+
+<aside class="notes"><p>pensad en dobles de acción.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Stub / Mock / Spy
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Stub
+</div>
+
+<aside class="notes"><ul>
+<li>Un stub es un objeto que proporciona respuestas predefinidas a las llamadas de métodos durante las pruebas.</li>
+<li>Su objetivo principal es simular el comportamiento de dependencias reales para que el objeto bajo prueba pueda ejecutar sin problemas.</li>
+<li>Los stubs suelen devolver valores estáticos o predefinidos.</li>
+<li>No realizan verificaciones sobre cómo se utilizan durante la prueba.</li>
+</ul>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+public class CalculadoraTest {
+
+    @Test
+    void testCalcularDescuentoConStub() {
+        // Creamos un stub del servicio de descuento
+        ServicioDescuento servicioDescuentoStub = new StubServicioDescuento();
+
+        // Creamos la instancia de la calculadora pasando el stub como dependencia
+        Calculadora calculadora = new Calculadora(servicioDescuentoStub);
+
+        // Ejecutamos el método bajo prueba
+        double descuento = calculadora.calcularDescuento(100);
+
+        // Verificamos el resultado esperado
+        assertEquals(10.0, descuento);
+    }
+
+    // Definimos un stub para ServicioDescuento que devuelve un descuento fijo
+    static class StubServicioDescuento implements ServicioDescuento {
+        @Override
+        public double obtenerDescuento(int cantidad) {
+            // Devolvemos un descuento fijo para propósitos de prueba
+            return 10.0;
+        }
+    }
+}
+```
+</div>
+
+<aside class="notes"><p>normalmente con las librerías actuales y sus funcionalidades este tipo de objetos apenas se usan, pero es importante conocerlos por si se  da el caso.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Mock
+</div>
+
+<aside class="notes"><ul>
+<li>Un mock es un objeto simulado que se configura para registrar y verificar las interacciones con el objeto bajo prueba.</li>
+<li>Se define el comportamiento esperado del mock antes de que se ejecute la prueba.</li>
+<li>Se utilizan métodos como <code>when()</code> y <code>thenReturn()</code> para configurar el comportamiento del mock.</li>
+<li>Se utilizan métodos como <code>verify()</code> para verificar si se realizaron ciertas interacciones con el mock durante la prueba.</li>
+</ul>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+public class CalculadoraImpuestosTest {
+
+    @Test
+    void testCalcularImpuesto() {
+        // Crear el mock del servicio de impuestos
+        ServicioImpuestos servicioImpuestosMock = mock(ServicioImpuestos.class);
+
+        // Configurar el comportamiento del mock
+        when(servicioImpuestosMock.calcularImpuesto(anyDouble())).thenReturn(10.0);
+
+        // Crear la instancia de la clase bajo prueba
+        CalculadoraImpuestos calculadoraImpuestos = new CalculadoraImpuestos(servicioImpuestosMock);
+
+        // Ejecutar el método bajo prueba
+        double impuestoCalculado = calculadoraImpuestos.calcularImpuesto(100);
+
+        // Verificar el resultado esperado
+        assertEquals(10.0, impuestoCalculado);
+
+        // Verificar que el método del mock fue invocado
+        verify(servicioImpuestosMock).calcularImpuesto(100);
+    }
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Spy
+</div>
+
+<aside class="notes"><ul>
+<li>Un spy es un objeto real que se coloca bajo observación durante la prueba.</li>
+<li>A diferencia de los stubs y mocks, los spies no reemplazan completamente la implementación real del objeto. En su lugar, se envuelven alrededor del objeto real y permiten observar y, en algunos casos, modificar su comportamiento.</li>
+<li>Los métodos reales del objeto se ejecutan a menos que se especifique lo contrario.</li>
+<li>Los spies son útiles cuando se quiere probar una implementación real pero también se necesita realizar ciertas verificaciones o modificaciones sobre su comportamiento durante la prueba.</li>
+</ul>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+
+public class CalculadoraImpuestosTest {
+
+    @Test
+    void testCalcularImpuesto() {
+        // Crear el spy del servicio de impuestos
+        ServicioImpuestos servicioImpuestosSpy = spy(new ServicioImpuestosImpl());
+
+        // Crear la instancia de la clase bajo prueba
+        CalculadoraImpuestos calculadoraImpuestos = new CalculadoraImpuestos(servicioImpuestosSpy);
+
+        // Ejecutar el método bajo prueba
+        double impuestoCalculado = calculadoraImpuestos.calcularImpuesto(100);
+
+        // Verificar el resultado esperado
+        assertEquals(10.0, impuestoCalculado);
+
+        // Verificar que el método real del objeto fue invocado
+        verify(servicioImpuestosSpy).calcularImpuesto(100);
+    }
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Hamcrest
+</div>
+
+<aside class="notes"><ul>
+<li><strong>Hamcrest</strong> es un framework de aserciones para Java que proporciona una sintaxis más expresiva y legible para las pruebas unitarias.</li>
+<li>Su objetivo principal es mejorar la legibilidad de los casos de prueba al proporcionar una amplia variedad de matchers que se pueden combinar de manera intuitiva para crear expresiones más claras y comprensibles.</li>
+</ul>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# ¿para qué?
+</div>
+
+<aside class="notes"><p>Hamcrest es solo para aserciones, deja a otros frameworks como JUnit la organización de los tests.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Legibilidad
+</div>
+
+<aside class="notes"><p>A la hora de que un test falle queremos enteder rápidamente, la sintaxis de hamcrest se asemeja a la lectura habitual humana, es mas facil comprender la verificación</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Lenguajes
+
+Java, Python, Ruby, Objective-C, PHP, Common Lisp, Erlang, Swift, Rust, JavaScript, GO, C#
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Matchers
+</div>
+
+<aside class="notes"><p>filtros para comprobar las aserciones</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `equalTo`
+
+### `assertThat(valor, equalTo(10))`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `is`
+
+### `assertThat(valor, is(equalTo(10)))`
+</div>
+
+<aside class="notes"><p>funcionalmente no hace nada, está solo para mejorar la legibilidad</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `hasItem`
+
+### `assertThat(coleccion, hasItem(elemento))`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `startsWith`
+
+### `assertThat(cadena, startsWith("prefijo"))`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `endsWith`
+
+### `assertThat(cadena, endsWith("sufijo"))`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `containsString`
+
+### `assertThat(cadena, containsString("subcadena"))`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `greaterThan`
+
+### `assertThat(valor, greaterThan(5))`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `lessThan`
+
+### `assertThat(valor, lessThan(10))`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `nullValue`
+
+### `assertThat(valor, nullValue())`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `notNullValue`
+
+### `assertThat(valor, notNullValue())`
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# `hasProperty`
+### `assertThat(objeto, hasProperty("nombrePropiedad", valorEsperado))`
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":false,"progress":false,"slideNumber":false,"transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
