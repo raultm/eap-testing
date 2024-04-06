@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.portada.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Testing
+
+## Intro
+</div>
+
+<aside class="notes"><p>IKEA Test Lab
+<a href="https://www.youtube.com/watch?v=wFtsatcQtDc">https://www.youtube.com/watch?v=wFtsatcQtDc</a></p>
+<p>IKEA chair testing machine
+<a href="https://www.youtube.com/watch?v=4s_gyzshNPQ">https://www.youtube.com/watch?v=4s_gyzshNPQ</a></p>
+<p>IKEA store chair durability neumatic testing contraption
+<a href="https://www.youtube.com/watch?v=FVAOl334s5k">https://www.youtube.com/watch?v=FVAOl334s5k</a></p>
+<p>IKEA Product Testing commercial (1988)
+<a href="https://www.youtube.com/watch?v=xovhrz4hncU">https://www.youtube.com/watch?v=xovhrz4hncU</a></p>
+<p>IKEA Test Lab (2018)
+<a href="https://www.youtube.com/watch?v=a9JBhPF3VJs">https://www.youtube.com/watch?v=a9JBhPF3VJs</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Testing
+
+## Fundamental en Desarrollo de Software
+</div>
+
+<aside class="notes"><p>es una parte fundamental del desarrollo de software</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.early.errors.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p><a href="https://unsplash.com/photos/analog-watch-at-1-00-TnEe6BdBC2M">https://unsplash.com/photos/analog-watch-at-1-00-TnEe6BdBC2M</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Identificacion Temprana de Errores
+</div>
+
+<aside class="notes"><p>El testing permite descubrir y corregir errores en etapas tempranas del ciclo de vida del desarrollo, lo que reduce el costo y el tiempo asociados con su corrección.</p>
+<p>Te permite encontrar errores antes de salir al público o incluso antes de llegar a la fase de testeo del cliente.</p>
+<p>No nos gustan esas llamadas de que algo que funcionaba ha dejado de funcionar</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.validation.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p><a href="https://unsplash.com/photos/person-writing-bucket-list-on-book-RLw-UC03Gwc">https://unsplash.com/photos/person-writing-bucket-list-on-book-RLw-UC03Gwc</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Asegurar la funcionalidad esperada
+### Validación de requisitos
+</div>
+
+<aside class="notes"><p>Las pruebas garantizan que el software cumpla con los requisitos establecidos y funcione como se espera en una variedad de situaciones.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.savings.money.time.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p>Ahorro tiempo y dinero
+<a href="https://unsplash.com/photos/person-holding-yellow-round-analog-clock-X_fbh4Utwk4">https://unsplash.com/photos/person-holding-yellow-round-analog-clock-X_fbh4Utwk4</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Ahorro de costos y tiempos
+</div>
+
+<aside class="notes"><p>Corregir errores en etapas de desarrollo es mucho más barato que en etapas de mantenimiento donde el producto está ya funcionando. (comprobación de retrocompatibilidad, posibles problemas de despliegues, perdida de consistencia de datos)</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.maintenance.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p><a href="https://unsplash.com/photos/man-cleaning-white-building-Rcsa_Rg77Tc">https://unsplash.com/photos/man-cleaning-white-building-Rcsa_Rg77Tc</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Facilitar el mantenimiento...
+</div>
+
+<aside class="notes"><p>Las pruebas proporcionan una red de seguridad al permitir la detección rápida de problemas al realizar cambios en el código existente o al agregar nuevas funcionalidades.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.evolution.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p><a href="https://unsplash.com/photos/three-pupas-VMKBFR6r_jg">https://unsplash.com/photos/three-pupas-VMKBFR6r_jg</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## y la Evolución del Software
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.security.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p><a href="https://unsplash.com/photos/two-women-facing-security-camera-above-mounted-on-structure-fPxOowbR6ls">https://unsplash.com/photos/two-women-facing-security-camera-above-mounted-on-structure-fPxOowbR6ls</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Mejora la seguridad
+</div>
+
+<aside class="notes"><p>El testing de seguridad ayuda a identificar vulnerabilidades y riesgos de seguridad en el software. Esto es crucial para proteger la información confidencial y garantizar la integridad del sistema.</p>
+<p>Si no solo conocemos los problemas de seguridad habituales, sino que además testeamos esos problemas contr anuestra aplicación. Por ejemplo con OWASP (Open Web Application Security Project)</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.trust.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p><a href="https://unsplash.com/photos/people-in-body-of-water-during-daytime-UixoLJ99YkI">https://unsplash.com/photos/people-in-body-of-water-during-daytime-UixoLJ99YkI</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Confianza
+
+### Cliente
+### Equipo
+</div>
+
+<aside class="notes"><p>Un software bien probado tiende a ser más confiable y estable en producción, lo que aumenta la satisfacción del usuario y reduce el riesgo de fallas costosas.</p>
+<p>Esa relación establecida con el cliente a través de entregas con bugs que no vuelven a salir es mucho mas valiosa que si existe la duda.</p>
+<p>Como equipo de desarrollo, es más cómodo y fácil trabajar sabiendo que un compañero haga algo que invalide alguno de tus cambios o incluso al revés, Si eres novato en el equipo te da la certeza de que algo que haces no va a estar rompiendo funcionalidades de un proyecto del que todavía no ers completamente consciente.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Testing
+## Conceptos Clave
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Casos de Prueba
+</div>
+
+<aside class="notes"><p>Conjunto de condiciones o acciones que se ejecutan durante el proceso de prueba para verificar la funcionalidad de una parte específica del software.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Resultados esperados
+</div>
+
+<aside class="notes"><p>El comportamiento o salida anticipada del software bajo prueba en respuesta a un caso de prueba específico.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Errores y Defectos
+</div>
+
+<aside class="notes"><p>Un error es un problema en el código que causa un comportamiento no deseado, mientras que un defecto es la manifestación de ese error en el software en ejecución.</p>
+<ul>
+<li><p><strong>Error</strong>: El desarrollador olvidó tener en cuenta los descuentos al calcular el total de la compra. Este es el error humano que se cometió durante el desarrollo del software.</p>
+</li>
+<li><p><strong>Defecto</strong>: Durante las pruebas de integración, el equipo de pruebas descubre que el total de la compra no es correcto. Después de investigar, identifican que el problema se debe al error en el cálculo de los descuentos. Este problema identificado se convierte en un defecto en el software.</p>
+</li>
+</ul>
+<p>Entonces, en este ejemplo:</p>
+<ul>
+<li>El error es el descuido del desarrollador al calcular el total de la compra sin considerar los descuentos.</li>
+<li>El defecto es el resultado incorrecto del cálculo del total de la compra que se descubre durante las pruebas.</li>
+</ul>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Testing
+## Tipos
+</div>
+
+<aside class="notes"><p>Existen varios tipos de testing que se utilizan para evaluar diferentes aspectos del software. </p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.functionality.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p>reference <a href="https://unsplash.com/photos/shallow-focus-photo-of-person-using-white-vr-headset-M6M_1QH-tvU">https://unsplash.com/photos/shallow-focus-photo-of-person-using-white-vr-headset-M6M_1QH-tvU</a></p>
+<p>Tras montar algo debemos probar que funciona como queremos o al menos como hemos conseguido hacerlo</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Funcional
+</div>
+
+<aside class="notes"><p>Evalúa si el software cumple con los requisitos funcionales establecidos.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.performance.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p>reference <a href="https://unsplash.com/photos/black-and-silver-laptop-computer-IrRbSND5EUc">https://unsplash.com/photos/black-and-silver-laptop-computer-IrRbSND5EUc</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Rendimiento
+</div>
+
+<aside class="notes"><p>Se centra en evaluar la capacidad de respuesta, la velocidad y la escalabilidad del software bajo diferentes cargas de trabajo.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.security.test.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p>reference <a href="https://mubi.com/es/es/films/entrapment">https://mubi.com/es/es/films/entrapment</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Seguridad
+</div>
+
+<aside class="notes"><p>Busca identificar vulnerabilidades y debilidades en la seguridad del software.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.usability.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p><a href="https://unsplash.com/photos/person-working-on-blue-and-white-paper-on-board-qWwpHwip31M">https://unsplash.com/photos/person-working-on-blue-and-white-paper-on-board-qWwpHwip31M</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Usabilidad
+</div>
+
+<aside class="notes"><p>Evalúa la facilidad de uso y la experiencia del usuario del software.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":false,"progress":false,"slideNumber":false,"transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
