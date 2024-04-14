@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title></title>
+    <title>Primer Acercamiento</title>
     <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/beige.css" id="theme" />
+    <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
     <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
 	<link rel="stylesheet" href="css/layout.css" />
 	<link rel="stylesheet" href="plugin/customcontrols/style.css">
@@ -248,7 +248,27 @@ public class DividirCadenaServiceTest {
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+```java
+public class DividirCategoriasService {
+
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 # Creamos el Método
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+public class DividirCategoriasService {
+
+    public String[] execute(String cadenaADividir){
+        return new String[];
+    }
+
+}
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -258,13 +278,56 @@ Una sola etiqueta
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+```java
+	@Test
+    public void siVieneUnaCategoriaDevuelveUnArrayDeUnElemento(){
+        DividirCategoriasService dividirService = new DividirCategoriasService();
+        String[] categorias = dividirService.execute("intriga");
+        String[] expected = new String[]{"intriga"};
+
+        assertArrayEquals(categorias, expected);
+    }
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Rojo
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java [4]
+public class DividirCategoriasService {
+
+    public String[] execute(String cadenaADividir){
+        return new String[]{cadenaADividir};
+    }
+
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 # Verde
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Varias etiquetas
 
-## ", "
+## ","
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+    @Test
+    public void gestionaCorrectamenteVariasCategoriasSeparadasPorComas(){
+        DividirCadenaService dividirCadenaService = new DividirCadenaServiceTest();
+
+        String[] resultado = dividirCadenaService.execute("intriga,adulto,novedad");
+        String[] esperado = new String[]{"intriga", "adulto", "novedad"};
+
+        assertArrayEquals(resultado, esperado);
+    }
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -272,19 +335,88 @@ Una sola etiqueta
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+```java [4]
+public class DividirCategoriasService {
+
+    public String[] execute(String cadenaADividir){
+        return cadenaADividir.split(",");
+    }
+
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 # Avanzamos
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# Espacio Opcional
+# Espacio Tras Coma 
+## Opcional
 
-## ","
+## ", "
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# Map/Trim
+```java
+	@Test
+    public void gestionaCorrectamenteVariasCategoriasSeparadasPorComasYQueHayaEspacioTrasComa(){
+        DividirCategoriasService dividirService = new DividirCategoriasService();
+        String[] categorias = dividirService.execute("familiar, amigos");
+        String[] expected = new String[]{"familiar", "amigos"};
+
+        assertArrayEquals(categorias, expected);
+    }
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Cambiamos divisor
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+	public String[] execute(String cadenaADividir){
+        return cadenaADividir.split(", ");
+	}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# ¿y si pone espacio antes?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+	@Test
+    public void gestionaCorrectamenteVariasCategoriasSeparadasPorComasYQueHayaEspacioPrevioAComa(){
+        DividirCategoriasService dividirService = new DividirCategoriasService();
+        String[] categorias = dividirService.execute("familiar ,amigos");
+        String[] expected = new String[]{"familiar", "amigos"};
+
+        assertArrayEquals(categorias, expected);
+    }
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Hacemos uso de trim()
 
 Elemento a elemento eliminamos los espacios
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+	public String[] execute(String cadenaADividir){
+        String[] valores = cadenaADividir.split(",");
+
+        for (int i = 0; i < valores.length; i++) {
+            valores[i] = valores[i].trim();
+        }
+
+        return valores;
+    }
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -319,15 +451,56 @@ En la Aplicación anterior nos obligaban a usar "|" y algunos estan acostumbrado
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+```java
+	@Test
+    public void gestionaCorrectamenteVariasCategoriasSeparadasPorBarra(){
+        DividirCategoriasService dividirService = new DividirCategoriasService();
+        String[] categorias = dividirService.execute("familiar | amigos | prueba");
+        String[] expected = new String[]{"familiar", "amigos", "prueba"};
+
+        assertArrayEquals(categorias, expected);
+    }
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 # RegExp
 
 ## "\[,|]"
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# Espacios
+```java [2]
+	public String[] execute(String cadenaADividir){
+        String[] valores = cadenaADividir.split("[,|]");
+
+        for (int i = 0; i < valores.length; i++) {
+            valores[i] = valores[i].trim();
+        }
+
+        return valores;
+    }
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Verde 
+
+## Pensamos refactorización
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Espacios por regexp
 
 ## " ?"
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java [2]
+	public String[] execute(String cadenaADividir){
+        return cadenaADividir.split(" ?[,|] ?");
+    }
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -363,19 +536,38 @@ En el Caso de Uso **Añadir Elemento del Catálogo**
 
 Igual que haceis lo de las categorías queremos hacerlo con unos valores númericos referentes a unos ratios para estadísticas internas
 
->  7,4/8,2/10,5
+>  7,33/8,45/9,10
 
 </div>
-
 </div>
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+----
 
 # No te acuerdas de nada
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+# Compruebas tests
+
+## Todo en verde
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 # Añades nuevo test
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+	@Test
+    public void gestionaCorrectamenteVariasCategoriasSeparadasPorSlash(){
+        DividirCategoriasService dividirService = new DividirCategoriasService();
+        String[] categorias = dividirService.execute("7,33/8,45/9,10");
+        String[] expected = new String[]{"7,33", "8,45", "9,10"};
+
+        assertArrayEquals(categorias, expected);
+    }
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -386,6 +578,12 @@ Igual que haceis lo de las categorías queremos hacerlo con unos valores númeri
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Rojo
+
+
+
+## Al tener cadenas , y /
+
+### Si no hubieramos tenido tests quizás podríamos no habernos dado cuenta
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -399,6 +597,74 @@ Igual que haceis lo de las categorías queremos hacerlo con unos valores númeri
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
+```java
+public class DividirCategoriasService {
+
+    public String[] execute(String cadenaADividir, String separadores){
+        return cadenaADividir.split(" ?[" + separadores + "] ?");
+    }
+
+    public String[] execute(String cadenaADividir) {
+        return execute(cadenaADividir, ",|");
+    }
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Modificamos el test
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+	@Test
+    public void gestionaCorrectamenteVariasCategoriasSeparadasPorSlash(){
+        DividirCategoriasService dividirService = new DividirCategoriasService();
+        String[] categorias = dividirService.execute("7,33/8,45/9,10", "/");
+        String[] expected = new String[]{"7,33", "8,45", "9,10"};
+
+        assertArrayEquals(categorias, expected);
+    }
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# ¿y si pone más de un espacio?
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+	@Test
+    public void gestionaCorrectamenteVariasValoresEliminandoTodosLosEspaciosEnBlanco(){
+        DividirCategoriasService dividirService = new DividirCategoriasService();
+        String[] categorias = dividirService.execute("7,33   /  8,45/   9,10", "/");
+        String[] expected = new String[]{"7,33", "8,45", "9,10"};
+
+        assertArrayEquals(categorias, expected);
+    }
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Cambiamos regexp
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+public class DividirCategoriasService {
+
+    public String[] execute(String cadenaADividir, String separadores){
+        return cadenaADividir.split(" *[" + separadores + "] *");
+    }
+
+    public String[] execute(String cadenaADividir) {
+        return execute(cadenaADividir, ",|");
+    }
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
 # Completo
 
 ## Nueva funcionalidad
@@ -407,13 +673,9 @@ Igual que haceis lo de las categorías queremos hacerlo con unos valores númeri
 
 # Preparados
 
-## Ante nuevos requerimientos
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+## ¿Un bug,  una nueva funcionalidad?
 
-# ¿Un bug?
-
-## Nuevo test y listo
+### Nuevo test y listo
 </div></script></section></div>
     </div>
 
