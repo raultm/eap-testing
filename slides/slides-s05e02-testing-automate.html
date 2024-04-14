@@ -6,7 +6,7 @@
 
     <title></title>
     <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/beige.css" id="theme" />
+    <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
     <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
 	<link rel="stylesheet" href="css/layout.css" />
 	<link rel="stylesheet" href="plugin/customcontrols/style.css">
@@ -88,181 +88,244 @@
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Testing
-## Técnicas
-</div>
 
-<aside class="notes"><p>las técnicas de testing proporcionan un enfoque sistemático y estructurado para diseñar casos de prueba efectivos que cubran diferentes aspectos del software y maximicen la detección de errores. Cada técnica tiene sus propias características y se utiliza en función de los requisitos y el contexto del proyecto de desarrollo.</p>
-</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+## Modo automático
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# Particiones de Equivalencia
+# Tengo los tests
 </div>
 
-<aside class="notes"><p>Esta técnica se basa en dividir el conjunto de datos de entrada en grupos válidos e inválidos, donde se espera que el comportamiento del software sea el mismo para todos los miembros de cada grupo. De esta manera, se reducen las redundancias en los casos de prueba, ya que no es necesario probar todos los valores posibles.</p>
-<p>Las particiones de equivalencia dividen el conjunto de datos de entrada en grupos homogéneos, de modo que cualquier valor dentro del mismo grupo produce el mismo resultado.</p>
+<aside class="notes"><p>y ¿ahora qué? cuando quiera pueda ejecutarlos y saber como está el estado del código</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Avisos
+
+## ¿🟢 vs 🔴?
+</div>
+
+<aside class="notes"><p>pero ¿cuándo? ¿en qué momentos ejecutamos las pruebas? si las escribimos pero no las ejecutamos o no recibimos avisos de que fallan de poco nos sirve</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Manualmente
+
+## Problema: Podemos olvidarnos
+</div>
+
+<aside class="notes"><p>al igual que podemos olvidarnos de hacer algunas pruebas manuales tambien se nos puede olvidar pasar los tests.</p>
+<p>Los tenemos automatizado ¿pero no los usamos?</p>
 <!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-| Grupo | Retraso   | Consecuencia  |
-| ----- | --------- | ------------- |
-| 1     | <=0 días  | Correcto      |
-| 2     | 1-7 días  | Sin Multa     |
-| 3     | 8-14 días | Multa pequeña |
-| 4     | > 14 días | Multa grande  |
+# Proceso de Desarrollo
+
+## Puntos Claves
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Control de Versiones
+
+## Commit
+</div>
+
+<aside class="notes"><p>¿queremos evitar que cualquier commit que hagamos tenga errores?</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## *"Arreglo fallo Ultimo Commit"*
+
+### Vamos a intentar evitar este tipo de mensajes
+</div>
+
+<aside class="notes"><p>puede ser un type, un punto y coma, se me ha olvidado comentar algo...</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Control de Versiones
+
+## Push
+</div>
+
+<aside class="notes"><p>¿queremos evitar subir errores a nuestro sistema de repositorios?</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## *"He mezclado tu último código y peta"*
+
+### Evitemos malos tragos a compañeros
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Integración Continua
+
+## Trabajo de Integración
+</div>
+
+<aside class="notes"><p>teniendo la salvaguardia de los tests, nos permite hacer integraciones de código automáticamente descargando a la gente de desarrollo/sistemas de un trabajo tedioso y aburrido que es fácilmente programable </p>
+<p>¿queremos comprobar que los cambios de los diferentes desarrolladores vayan con errores a nuestra aplicación?</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## *"Lo último que habeis subido no funciona"*
+
+### Evitemos que el cliente nos tenga que avisar de algo que ya deberíamos saber.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing.automatization.jpg" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p><a href="https://unsplash.com/photos/a-factory-filled-with-lots-of-orange-machines-8gr6bObQLOI">https://unsplash.com/photos/a-factory-filled-with-lots-of-orange-machines-8gr6bObQLOI</a></p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Reflexionemos
+
+Ahora, antes de cada commit o push 
+
+¿realizamos todas las tareas que sabemos que tendríamos que hacer para comprobar que la aplicación funciona?
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-```java
-public class BibliotecaTest {
+# Repetitivo
+# =
+# Aburrido
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-    @Test
-    public void testCalcularMulta() {
-        Biblioteca biblioteca = new Biblioteca();
-        assertThat(biblioteca.calcularMulta(-1), is(equalTo(-1))); // Grupo 1
-        assertThat(biblioteca.calcularMulta(5), is(equalTo(0)));   // Grupo 2
-        assertThat(biblioteca.calcularMulta(10), is(equalTo(5)));  // Grupo 3
-        assertThat(biblioteca.calcularMulta(20), is(equalTo(15))); // Grupo 4
-    }
-}
+# Repetitivo
+# =
+# Desidia
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Repetitivo
+# =
+# Fallos
+</div>
+
+<aside class="notes"><p>en general somos bastantes malos cuando tenemos que hacer una tarea repetitiva en el tiempo</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Trasladar Responsabilidad
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Git Hooks
+
+### Git nos ofrece poder lanzar comandos antes y después de muchos eventos
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Adjuntos/git.hooks.jpg" alt="" style="object-fit: scale-down">
+</div>
+
+<aside class="notes"><p><a href="https://devopedia.org/git-hooks">https://devopedia.org/git-hooks</a></p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Carpeta `.git`
+
+```bash
+cd proyectoConRepositorioGit
+ls -lah .git/hooks
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```bash
+$ ls -la .git/hooks |tr -s ' ' |cut -d' ' -f9-
+
+.
+..
+applypatch-msg.sample
+commit-msg.sample
+fsmonitor-watchman.sample
+post-update.sample
+pre-applypatch.sample
+pre-commit.sample
+pre-merge-commit.sample
+pre-push.sample
+pre-rebase.sample
+pre-receive.sample
+prepare-commit-msg.sample
+push-to-checkout.sample
+update.sample
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Pre-commit
+
+```bash
+# Comando de test en archivo pre-commit
+echo "mvn test" > .git/hooks/pre-commit
+# Darle permisos de ejecución
+chmod +x .git/hooks/pre-commit
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Pre-push
+
+```bash
+# Comando de test en archivo pre-commit
+echo "mvn test" > .git/hooks/pre-push
+# Darle permisos de ejecución
+chmod +x .git/hooks/pre-push
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# Análisis de Valores Límites
+# Gitlab
+
+`.gitlab-ci.yml`
 </div>
 
-<aside class="notes"><p>El análisis de valores límite se centra en probar los límites y bordes de los rangos de entrada, ya que los errores tienden a ocurrir en estas áreas con mayor frecuencia. Se diseñan casos de prueba para verificar el comportamiento del software en los valores límite y justo más allá de ellos.</p>
-<p>Esta técnica se enfoca en probar los valores límite de las particiones de equivalencia.</p>
+<aside class="notes"><p><a href="https://docs.gitlab.com/ee/ci/">https://docs.gitlab.com/ee/ci/</a></p>
 <!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-```java
-public class BibliotecaTest {
+```yml
 
-	@Test
-    public void testCalcularMultaValoresLimites() {
-	    assertThat(biblioteca.calcularMulta(0), is(equalTo(0)));
-	    assertThat(biblioteca.calcularMulta(7), is(equalTo(0)));
-	    assertThat(biblioteca.calcularMulta(8), is(equalTo(3)));
-	    assertThat(biblioteca.calcularMulta(14), is(equalTo(3)));
-	    assertThat(biblioteca.calcularMulta(15), is(equalTo(8)));
-	    assertThat(biblioteca.calcularMulta(Integer.MAX_VALUE), is(greaterThan(15)));
-	}
-}
+test-job1:
+  stage: test
+  script:
+    - mvn test
+
+build-job:
+  stage: build
+  script:
+    - mvn package
+
+deploy-prod:
+  stage: deploy
+  script:
+    - scp project.war git@servidorproduccion:/var/autodeploy/
 ```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Adjuntos/gitlab.pipeline.gren.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Adjuntos/gitlab.pipeline.red.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# Pruebas de Decisiones
+# Ahorro
+
+## No penseis en el trabajo que os lleva
+
+## Pensad en el trabajo que os ahorra
 </div>
 
-<aside class="notes"><p>Esta técnica se utiliza para probar la lógica de decisión del software, donde se toman decisiones basadas en condiciones lógicas. Se diseñan casos de prueba para evaluar todas las condiciones posibles, incluyendo tanto las condiciones verdaderas como las falsas, y para verificar que el software tome las decisiones correctas en cada caso.</p>
-<p>Se centra en probar cada decisión en una estructura de control (if, else, switch).</p>
-<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-```java
-@Test
-    public void testPrestarLibro() {
-        Biblioteca biblioteca = new Biblioteca();
-        Miembro miembro = new Miembro("Juan");
-        Elemento elemento = new Elemento("Libro", "Cien años de soledad");
-        biblioteca.prestar(miembro, elemento);
-        assertTrue(biblioteca.estaPrestado(elemento)); // Verifica si el libro está prestado
-        assertEquals(miembro, biblioteca.obtenerMiembroPrestamo(elemento)); // Verifica si el miembro asociado es correcto
-    }
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-# Pruebas de Condiciones
-</div>
-
-<aside class="notes"><p>Las pruebas de condiciones se enfocan en verificar la evaluación de las condiciones lógicas en el código. Se diseñan casos de prueba para cubrir todas las combinaciones posibles de condiciones, incluyendo las condiciones simples y compuestas, y para asegurar que todas las ramas del código sean ejecutadas y evaluadas correctamente.</p>
-<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-```java
-@Test
-    public void testCalcularMultaCondiciones() {
-        Biblioteca biblioteca = new Biblioteca();
-        assertThat(biblioteca.calcularMulta(-1), is(equalTo(-1))); // Condición de entrada inválida
-        assertThat(biblioteca.calcularMulta(5), is(equalTo(0)));   // Condición sin multa
-        assertThat(biblioteca.calcularMulta(10), is(equalTo(5)));  // Condición multa pequeña
-        assertThat(biblioteca.calcularMulta(20), is(equalTo(15))); // Condición multa grande
-    }
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-# Pruebas de Flujos de Datos
-</div>
-
-<aside class="notes"><p>Estas pruebas se utilizan para verificar el flujo de datos a través del sistema, desde su entrada hasta su salida. Se diseñan casos de prueba para cubrir diferentes caminos de ejecución a través del software y para validar que los datos se procesen correctamente en cada etapa del flujo de trabajo.</p>
-<p>Se prueban las vías de datos en un algoritmo.</p>
-<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-```java
-@Test
-    public void testPrestarVariosLibros() {
-        Biblioteca biblioteca = new Biblioteca();
-        Miembro miembro = new Miembro("Juan");
-        Elemento libro1 = new Elemento("Libro", "Cien años de soledad");
-        Elemento libro2 = new Elemento("Libro", "El amor en los tiempos del cólera");
-        biblioteca.prestar(miembro, libro1);
-        biblioteca.prestar(miembro, libro2);
-        assertTrue(biblioteca.estaPrestado(libro1));
-        assertTrue(biblioteca.estaPrestado(libro2));
-    }
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-# Pruebas de Interfaz
-</div>
-
-<aside class="notes"><p>Las pruebas de interfaz se centran en verificar la interacción entre los diferentes componentes del sistema, incluyendo interfaces de usuario, interfaces de programación de aplicaciones (API) y interfaces de base de datos. Se diseñan casos de prueba para validar la comunicación y la integración entre estos componentes.</p>
-<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-```java
-@Test
-    public void testRetornarLibro() {
-        Biblioteca biblioteca = new Biblioteca();
-        Miembro miembro = new Miembro("Juan");
-        Elemento libro = new Elemento("Libro", "Cien años de soledad");
-        biblioteca.prestar(miembro, libro);
-        biblioteca.retornar(libro);
-        assertFalse(biblioteca.estaPrestado(libro)); // Verifica que el libro ya no está prestado
-    }
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-# Pruebas Exploratorias
-</div>
-
-<aside class="notes"><p>Estas pruebas se basan en la experiencia y el conocimiento del probador para explorar el software y descubrir posibles defectos. Se realizan de manera ad hoc y se centran en áreas de riesgo o vulnerabilidad identificadas durante el proceso de testing.</p>
-<p>Las tipicas que hacemos manualmente intentando buscar problemas de error, vamos interactuando hasta ver si encontramos algo erroneo</p>
-<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-```java
-// Prueba exploratoria: Prestar y retornar libros múltiples veces
-    @Test
-    public void testPrestarRetornarLibrosExploratorio() {
-        Biblioteca biblioteca = new Biblioteca();
-        Miembro miembro = new Miembro("Juan");
-        Elemento libro1 = new Elemento("Libro", "Cien años de soledad");
-        Elemento libro2 = new Elemento("Libro", "El amor en los tiempos del cólera");
-        biblioteca.prestar(miembro, libro1);
-        biblioteca.retornar(libro1);
-        biblioteca.prestar(miembro, libro2);
-        assertTrue(biblioteca.estaPrestado(libro2));
-    }
-```
-</div></script></section></div>
+<aside class="notes"><p>es cierto que muchas veces ese trabajo no lo hacemos, pero porque confiamos mucho en nosotros mismos</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section></div>
     </div>
 
     <script src="dist/reveal.js"></script>

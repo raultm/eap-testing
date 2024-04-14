@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title></title>
+    <title>TDD - Intro</title>
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
     <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
@@ -88,74 +88,131 @@
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # TDD
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-## Vs Code
+### Test Driven Development
+
+### Desarrollo Dirigido por Test
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Créditos
+## Kent Beck
+</div>
+
+<aside class="notes"><p>acordarse de quien fue el creador de JUnit</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Método de Trabajo
+
+## Tests antes que el código
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# ¿Por qué?
+
+## Pensar antes de actuar
+</div>
+
+<aside class="notes"><p>¿cuándo? un tema personal, suelo aplicarlo cuando a funcionalidades que no se de antemano como programarla, en muchos casos hemos desarrollado funcionalidades muy parecidas con resultados buenos, ya tienes en mente la estructura de lo que quieres hacer.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Ciclo de Funcionalidad
+
+- Listar expectativas de nueva funcionalidad
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Escribir un test de esa lista
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Ejecutar todos los test. 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->El nuevo debe fallar porque es nuevo comportamiento
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Añadir código para que funcione
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Hacer que todos los tests pasen
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Refactorizar con confianza
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Objetivo
 
-Ejecutar tests cada vez que guardo un archivo
+Cuando te pongas a escribir tengas que pensar lo mínimo indispensable
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# `.vscode` Folder
+# Red
+# Green 
+# Refactor
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/testing_tdd_cupcake.webp" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-<img src="Adjuntos/vscode.folder.png" alt="" style="object-fit: scale-down">
+
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Ventajas
+
+- Cobertura
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Confianza
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Documentación
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Refuerzo Positivo
+</div>
+
+<aside class="notes"><p>el flow es como un juego</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Desventajas
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Formación
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Falsa Sensación Seguridad
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Mantenimiento de tests
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Sobreingeniería
+</div>
+
+<aside class="notes"><p>Ir paso a paso puede ser mas lento, pero en contraposición te da mucha mas seguridad en al funcionalidad</p>
+<p>Si el ambito de la funcionalidad no es claro o poco definido, TDD puede ser un arma de doble filo.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Desarrollador
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Más confianza
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Sin miedo al cambio
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Mejor foco
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Sensación de logro / Satisfacción
+</div>
+
+<aside class="notes"><p><a href="https://en.wikipedia.org/wiki/Test-driven_development">https://en.wikipedia.org/wiki/Test-driven_development</a></p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# ¿Cuándo usarlo?
+
+## Algo Personal
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# ¿Tareas Repetitivas?
+# Experiencia
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# `tasks.json`
+# Empezar con Funcionalidades
+
+En un proyecto existente, una nueva funcionalidad
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-```js
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "java-run-all-tests",
-        "command": "${command:testing.runAll}"
-      }
-    ]
-}
-```
+# Lenguaje
+## Interpretados vs Compilados
+
+El tiempo de compilación puede hacer que no sea usable
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# ¿Ajustes específicos para el proyecto?
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+# Tipo de Proyecto
 
-# [Precedencia de Ajustes](https://code.visualstudio.com/docs/getstarted/settings#_settings-precedence)
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+## Reglas muy estrictas
 
-# [Trigger Task on Save](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.triggertaskonsave)
-
-<img src="https://gruntfuggly.gallerycdn.vsassets.io/extensions/gruntfuggly/triggertaskonsave/0.2.17/1614113709522/Microsoft.VisualStudio.Services.Icons.Default" alt="Extension" style="object-fit: scale-down">
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-# `settings.json`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-```js
-{
-    "triggerTaskOnSave.tasks": {
-        "java-run-all-tests": [
-          "*", // <-- Glob pattern to specify which files should trigger the task
-        ],
-    }
-}
-```
+Trámite burocrático muy procedimentado con casos excepcionales comentados
 </div></script></section></div>
     </div>
 
