@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title></title>
+    <title>Tipos de Tests</title>
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
     <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
@@ -92,6 +92,21 @@
 </div>
 
 <aside class="notes"><p>El proceso de testing comprende varios niveles que se centran en distintas áreas del software y se ejecutan en diferentes etapas del ciclo de vida del desarrollo. Cada nivel tiene sus propios objetivos y enfoques para asegurar la calidad del producto final. Los niveles de testing más comunes son:</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/test.types.list.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p>listado completo de tests</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/test.types.list.highlight.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+
+</div>
+
+<aside class="notes"><p>donde nos vamos a centrar nosotros</p>
+<p>Vamos a revisar cada uno de ellos.</p>
 </aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -99,7 +114,11 @@
 </div>
 
 <aside class="notes"><p>Aunque haya tests que puedan ser muy parecido o incluso a veces iguales, es muy importante diferenciarlos por enfoque y objetivo.</p>
-<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Adjuntos/unit.tests.magic.jpeg" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Funcionales
@@ -160,7 +179,11 @@
 <li><strong>Objetivo</strong>: Asegurar que las características previamente probadas sigan funcionando correctamente después de cada modificación en el código.</li>
 <li><strong>Ejemplo</strong>: Después de realizar una actualización en el software de la biblioteca para mejorar la búsqueda de libros, se ejecuta una prueba de regresión para garantizar que otras funciones, como el proceso de préstamo y devolución, no se hayan visto afectadas negativamente por los cambios realizados.<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></li>
 </ul>
-</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Adjuntos/tester.vs.users.jpg" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Rendimiento
@@ -268,7 +291,11 @@
 <li><strong>Objetivo</strong>: Garantizar una comunicación eficiente entre los elementos del sistema bajo diferentes condiciones de red.</li>
 <li><strong>Ejemplo</strong>: Medir la velocidad de transferencia de datos entre el servidor y los terminales de usuario en la biblioteca.<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></li>
 </ul>
-</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Adjuntos/software.security.vs.user.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Seguridad
@@ -341,7 +368,11 @@
 <li><strong>Objetivo</strong>: Sensibilizar a los usuarios sobre las posibles amenazas y entrenarlos para reconocer y evitar ataques de ingeniería social.</li>
 <li><strong>Ejemplo</strong>: Simular un correo electrónico de phishing dirigido a los usuarios del sistema de la biblioteca para evaluar su capacidad para identificar y reportar correos electrónicos sospechosos.<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></li>
 </ul>
-</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Adjuntos/ux.what.say.what.do.png" alt="" style="object-fit: scale-down">
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Usabilidad
