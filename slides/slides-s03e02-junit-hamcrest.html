@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title></title>
+    <title>JUnit / Hamcrest</title>
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
     <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
@@ -103,13 +103,18 @@
 
 <aside class="notes"><p><a href="https://www.zdnet.com/article/kent-beck-we-thought-we-were-just-programming-on-an-airplane/">https://www.zdnet.com/article/kent-beck-we-thought-we-were-just-programming-on-an-airplane/</a></p>
 <p><a href="https://medium.com/@stefan.paladuta17/theory-my-2-cent-about-software-testing-part-1-basic-intro-d765f5767a9f">https://medium.com/@stefan.paladuta17/theory-my-2-cent-about-software-testing-part-1-basic-intro-d765f5767a9f</a></p>
-<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # 1997
 
 ## Erich Gamma y Kent Beck
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+</div>
+
+<aside class="notes"><p>la primera versión fue escrita en el vuelo de un avión.</p>
+<p>Recordar que la idea básica de UTF8 se hizo en un bar en una servilleta
+<a href="http://doc.cat-v.org/bell_labs/utf-8_history">http://doc.cat-v.org/bell_labs/utf-8_history</a> historia contada por Rob Pyke.</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Ventajas
@@ -167,7 +172,7 @@
 ## Pruebas complejas
 </div>
 
-<aside class="notes"><p>como su propio nombre indica JUnit está diseñado para realizar prubas unitarias, a medida que las necesidades de las pruebas empiezan a ser mas complejas la complejidad de los tests tambien se incrementa, es tambien parte de la propia casuistica de la prueba.</p>
+<aside class="notes"><p>como su propio nombre indica JUnit está diseñado para realizar prubas unitarias, a medida que las necesidades de las pruebas empiezan a ser mas complejas la complejidad de los tests tambien se incrementa(lógica de negocio, dependencias), es tambien parte de la propia casuistica de la prueba.</p>
 <!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -177,7 +182,7 @@
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# @Test
+# `@Test`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -200,7 +205,7 @@ public class MiClaseTest {
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# @BeforeEach
+# `@BeforeEach`
 </div>
 
 <aside class="notes"><p>preparación de un entorno común a todos los tests, resetear objetos, estados, etc.</p>
@@ -228,7 +233,7 @@ public class MiClaseTest {
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# @AfterEach
+# `@AfterEach`
 </div>
 
 <aside class="notes"><p>cerrar conexiones a base de datos, terminar ciertos procesos que pueden quedar abiertos</p>
@@ -262,7 +267,7 @@ public class MiClaseTest {
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# @BeforeAll
+# `@BeforeAll`
 </div>
 
 <aside class="notes"><p>para la preparación de la clase, la verdad es que por su naturaleza estática, no pudiendo instanciar objetos del estado de la clase, no suelo usarlos, normalmente suele interesar @BeforeEach, pero como hay muchas situaciones que lo conozcais</p>
@@ -304,7 +309,7 @@ public class MiClaseTest {
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# @AfterAll
+# `@AfterAll`
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -345,6 +350,16 @@ public class MiClaseTest {
 
 }
 ```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Versiones JUnit
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**1.0 (1998)** - Aspectos fundacionales
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**2.0 (1999)** - Soporte de excepciones `expect()`
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**3.0 (2000)** - Primeras Anotaciones @Test, @Before, @After
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**4.0 (2006-2014)** - Versión estable y muy completa, llega hasta Java 8
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->**5.0 (2017)** - Anidación, Agrupación, Parametrización y test dinámicos
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -431,20 +446,38 @@ public class CalculadoraTest {
     }
 }
 ```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-| Listado Básico                                  |
-| ----------------------------------------------- |
-| `assertEquals(expected, result)`                |
-| `assertNotEquals(expected, result)`             |
-| `assertTrue(condition)`                         |
-| `assertFalse(condition)`                        |
-| `assertNull(object)`                            |
-| `assertThrows(exceptionType, executable)`       |
-| `assertDoesNotThrows(executable)`               |
-| `assertArrayEquals(expectedArray, actualArray)` |
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<img src="Adjuntos/junit.basic.asserts.png" alt="" style="object-fit: scale-down">
+</div>
+
+<aside class="notes"><table>
+<thead>
+<tr>
+<th>Listado Básico</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>assertEquals(expected, result)</code></td>
+<td><code>assertNotEquals(expected, result)</code></td>
+</tr>
+<tr>
+<td><code>assertTrue(condition)</code></td>
+<td><code>assertFalse(condition)</code></td>
+</tr>
+<tr>
+<td><code>assertNull(object)</code></td>
+<td><code>assertThrows(exceptionType, executable)</code></td>
+</tr>
+<tr>
+<td><code>assertDoesNotThrows(executable)</code></td>
+<td><code>assertArrayEquals(expectedArray, actualArray)</code></td>
+</tr>
+</tbody></table>
+<p>es posible que veais listados infinitos de assert, pero en muchos casos vais a usar menos del 10%. Es importante saber que existen muchos porque ante un test que parece complicarse quizás haya un assert que está pensado para ese caso</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Organización
