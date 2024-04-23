@@ -178,7 +178,11 @@
 
 # Organización
 
+
+
 ## Anotaciones
+
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -192,10 +196,10 @@ public class MiClaseTest {
     @Test
     public void testSuma() {
         // Arrange
-        MiClase miClase = new MiClase();
+        MathUtils mathUtils = new MathUtils();
 
         // Act
-        int resultado = miClase.suma(2, 3);
+        int resultado = mathUtils.suma(2, 3);
 
         // Assert
         assertEquals(5, resultado);
@@ -212,20 +216,20 @@ public class MiClaseTest {
 <!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-```java [5-9]
+```java [3|5-9|11-15]
 public class MiClaseTest {
 
-	MiClase miClase;
+	MathUtils mathUtils;
 
 	@BeforeEach
     public void setUp() {
-        miClase = new MiClase();
-        System.out.println("Configuración inicial antes de cada prueba");
+        // Configuración inicial antes de cada prueba
+        mathUtils = new MathUtils();
     }
 
     @Test
     public void testSuma() {
-        int resultado = miClase.suma(2, 3);
+        int resultado = mathUtils.suma(2, 3);
 		assertEquals(5, resultado);
     }
 }
@@ -243,18 +247,18 @@ public class MiClaseTest {
 ```java [11-15]
 public class MiClaseTest {
 
-	MiClase miClase;
+	MathUtils mathUtils;
 
 	@BeforeEach
     public void setUp() {
-        miClase = new MiClase();
-        System.out.println("Configuración inicial antes de cada prueba");
+	    // Configuración inicial antes de cada prueba
+        mathUtils = new MathUtils();
     }
 
 	@AfterEach
     public void tearDown() {
-        miClase = new MiClase();
-        System.out.println("Limpieza después de cada prueba");
+        // Limpieza después de cada prueba
+        mathUtils = null;
     }
 
     @Test
@@ -277,31 +281,29 @@ public class MiClaseTest {
 ```java [5-8]
 public class MiClaseTest {
 
-	MiClase miClase;
+	MathUtils mathUtils;
 
 	@BeforeAll
 	public static void setUpAll(){
-		System.out.println("Configuración inicial de la clase");
+		// Configuración inicial de la clase
 	}
 
 	@BeforeEach
     public void setUp() {
-        miClase = new MiClase();
-        System.out.println("Configuración inicial antes de cada prueba");
+	    // Configuración inicial antes de cada prueba
+        mathUtils = new MathUtils();
+    }
+
+	@AfterEach
+    public void tearDown() {
+        // Limpieza después de cada prueba
+        mathUtils = null;
     }
 
 	@Test
     public void testSuma() {
         int resultado = miClase.suma(2, 3);
 		assertEquals(5, resultado);
-    }
-
-	// Aquí irían mas tests
-
-	@AfterEach
-    public void tearDown() {
-        miClase = new MiClase();
-        System.out.println("Limpieza después de cada prueba");
     }
 
 }
@@ -313,41 +315,38 @@ public class MiClaseTest {
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-```java [30-33]
+```java [10-13]
 public class MiClaseTest {
 
-	MiClase miClase;
+	MathUtils mathUtils;
 
 	@BeforeAll
 	public static void setUpAll(){
-		System.out.println("Configuración inicial de la clase");
+		// Configuración inicial de la clase
+	}
+
+	@AfterAll
+	public static void tearDownAll(){
+		// Limpieza después de todas las pruebas
 	}
 
 	@BeforeEach
     public void setUp() {
-        miClase = new MiClase();
-        System.out.println("Configuración inicial antes de cada prueba");
+	    // Configuración inicial antes de cada prueba
+        mathUtils = new MathUtils();
+    }
+
+	@AfterEach
+    public void tearDown() {
+        // Limpieza después de cada prueba
+        mathUtils = null;
     }
 
 	@Test
     public void testSuma() {
-        int resultado = miClase.suma(2, 3);
+        int resultado = mathUtils.suma(2, 3);
 		assertEquals(5, resultado);
     }
-
-	// Aquí irían mas tests
-
-	@AfterEach
-    public void tearDown() {
-        miClase = new MiClase();
-        System.out.println("Limpieza después de cada prueba");
-    }
-
-	@AfterAll
-	public static void tearDownAll(){
-		System.out.println("Limpieza después de todas las pruebas");
-	}
-
 }
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
@@ -424,28 +423,6 @@ public class MiClaseTest {
 # assertArrayEquals
 
 ### `assertArrayEquals(expectedArray, actualArray)`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-```java
-public class CalculadoraTest {
-
-    @Test
-    public void testSuma() {
-        Calculadora calc = new Calculadora();
-        int resultado = calc.suma(2, 3);
-        assertEquals(5, resultado, "La suma de 2 y 3 debe ser 5");
-    }
-
-    @Test
-    public void testDivision() {
-        Calculadora calc = new Calculadora();
-        assertThrows(ArithmeticException.class, () -> {
-            calc.division(5, 0);
-        });
-    }
-}
-```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -469,11 +446,15 @@ public class CalculadoraTest {
 </tr>
 <tr>
 <td><code>assertNull(object)</code></td>
-<td><code>assertThrows(exceptionType, executable)</code></td>
+<td><code>assertNotNull(object)</code></td>
 </tr>
 <tr>
+<td><code>assertThrows(exception, executable)</code></td>
 <td><code>assertDoesNotThrows(executable)</code></td>
-<td><code>assertArrayEquals(expectedArray, actualArray)</code></td>
+</tr>
+<tr>
+<td><a href="https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html">https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html</a></td>
+<td></td>
 </tr>
 </tbody></table>
 <p>es posible que veais listados infinitos de assert, pero en muchos casos vais a usar menos del 10%. Es importante saber que existen muchos porque ante un test que parece complicarse quizás haya un assert que está pensado para ese caso</p>
@@ -481,51 +462,37 @@ public class CalculadoraTest {
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Organización
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ## Suites
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-# @Tag
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+`pom.xml`
 
-```java
-@DisplayName("Suite de Pruebas de Integración")
-@Tag("integracion")
-public class SuitePruebasIntegracion {
-
-    @Test
-    @DisplayName("Prueba de Integración 1")
-    void pruebaIntegracion1() {
-        // Implementación de la prueba de integración 1
-    }
-
-    @Test
-    @DisplayName("Prueba de Integración 2")
-    void pruebaIntegracion2() {
-        // Implementación de la prueba de integración 2
-    }
-}
-```
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
-
-```bash
-mvn test -Dgroups=integracion
+```xml
+	<dependency>
+	    <groupId>org.junit.platform</groupId>
+	    <artifactId>junit-platform-suite-engine</artifactId>
+	    <version>1.8.1</version>
+	</dependency>
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # @SelectClasses
+
+
+
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" -->
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ```java
-@DisplayName("Suite de Pruebas")
-@SelectClasses({Prueba1Test.class, Prueba2Test.class}) // Selecciona clases específicas
-//@SelectPackages("com.ejemplo.pruebas") // Opcional: selecciona todas las clases en un paquete
-public class SuitePruebas {
+@DisplayName("Suite de Pruebas usando Clases")
+@SelectClasses({Prueba1Test.class, Prueba2Test.class})
+public class SuiteClases {
     // No es necesario definir métodos de prueba aquí
 }
 ```
@@ -533,7 +500,31 @@ public class SuitePruebas {
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ```bash
-mvn test -Dtest=SuitePruebas
+mvn test -Dtest=SuiteClases
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# @SelectClasses
+
+
+
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+@DisplayName("Suite de Pruebas usando Paquetes")
+@SelectPackages("com.ejemplo.pruebas") 
+public class SuitePaquetes {
+    // No es necesario definir métodos de prueba aquí
+}
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```bash
+mvn test -Dtest=SuitePaquetes
 ```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
@@ -595,7 +586,7 @@ public class CalculadoraTest {
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
-Si imaginamos un archivo `datos-descuento.csv` con el siguiente contenido
+Si imaginamos un archivo `datos-descuento.csv` con el siguiente contenido (Debe estar en la carpeta `resources`)
 
 ```txt
 PrecioOriginal,PorcentajeDescuento,PrecioEsperado
@@ -783,6 +774,18 @@ public class CalculadoraImpuestosTest {
 # Lenguajes
 
 Java, Python, Ruby, Objective-C, PHP, Common Lisp, Erlang, Swift, Rust, JavaScript, GO, C#
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+`pom.xml`
+```xml
+	<dependency>
+	    <groupId>org.hamcrest</groupId>
+	    <artifactId>hamcrest</artifactId>
+	    <version>2.2</version> <!-- O la versión más reciente disponible -->
+	    <scope>test</scope>
+	</dependency>
+```
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -791,6 +794,13 @@ Java, Python, Ruby, Objective-C, PHP, Common Lisp, Erlang, Swift, Rust, JavaScri
 
 <aside class="notes"><p>filtros para comprobar las aserciones</p>
 <!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+```java
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+```
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # `equalTo`
@@ -853,12 +863,15 @@ Java, Python, Ruby, Objective-C, PHP, Common Lisp, Erlang, Swift, Rust, JavaScri
 # `notNullValue`
 
 ### `assertThat(valor, notNullValue())`
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" data-background-image="Adjuntos/slides.eap.png" -->
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # `hasProperty`
-### `assertThat(objeto, hasProperty("nombrePropiedad", valorEsperado))`
-</div></script></section></div>
+### `assertThat(objeto, hasProperty("propiedad", valor))`
+</div>
+
+<aside class="notes"><p>el objeto tiene que tener un metodo getXXX donde XXX es la propiedad</p>
+<!-- .slide: data-background-image="Adjuntos/slides.eap.png" --></aside></script></section></div>
     </div>
 
     <script src="dist/reveal.js"></script>
