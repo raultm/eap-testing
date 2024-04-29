@@ -486,7 +486,7 @@ public class MiClaseTest {
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ```java
-@DisplayName("Suite de Pruebas usando Clases")
+@Suite
 @SelectClasses({Prueba1Test.class, Prueba2Test.class})
 public class SuiteClases {
     // No es necesario definir métodos de prueba aquí
@@ -506,7 +506,7 @@ mvn test -Dtest=SuiteClases
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ```java
-@DisplayName("Suite de Pruebas usando Paquetes")
+@Suite
 @SelectPackages("com.ejemplo.pruebas") 
 public class SuitePaquetes {
     // No es necesario definir métodos de prueba aquí
